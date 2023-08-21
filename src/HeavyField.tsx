@@ -1,11 +1,11 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import styles from "./HeavyField.module.css";
 
 type Props = {
   text: string;
 };
 
-export const HeavyField: FC<Props> = ({ text }) => {
+export const HeavyField: FC<Props> = memo(({ text }) => {
   let startTime = performance.now();
   while (performance.now() - startTime < 100) {
     // Do nothing for 1 ms per item to emulate extremely slow code
@@ -16,4 +16,4 @@ export const HeavyField: FC<Props> = ({ text }) => {
       <div className={styles.output}>{text}</div>
     </div>
   );
-};
+});
