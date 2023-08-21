@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.output {
+  padding: 5px;
+  border: 1px solid;
+  min-width: 150px;
+  min-height: 20px;
+}
