@@ -7,7 +7,7 @@ type Props = {
   isActive: boolean;
 };
 export const TabButton: FC<Props> = ({ children, onClick, isActive }) => {
-  const [_, startTransition] = useTransition();
+  const [isPending, startTransition] = useTransition();
   const buttonClassName = isActive ? styles.active : styles.inactive;
   return (
     <button
@@ -17,6 +17,7 @@ export const TabButton: FC<Props> = ({ children, onClick, isActive }) => {
           onClick();
         });
       }}
+      disabled={isPending}
     >
       {children}
     </button>
