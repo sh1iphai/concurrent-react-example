@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useTransition } from "react";
 import styles from "./Tab.module.css";
 
 type Props = {
@@ -7,12 +7,15 @@ type Props = {
   isActive: boolean;
 };
 export const TabButton: FC<Props> = ({ children, onClick, isActive }) => {
+  const [_, startTransition] = useTransition();
   const buttonClassName = isActive ? styles.active : styles.inactive;
   return (
     <button
       className={buttonClassName}
       onClick={() => {
-        onClick();
+        startTransition(() => {
+          onClick();
+        });
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { TabButton } from "./TabButton";
 import { AboutTab } from "./AboutTab";
 import { PostsTab } from "./PostsTab";
@@ -8,12 +8,9 @@ import styles from "./App.module.css";
 type TabType = "about" | "posts" | "contact";
 
 export const App = () => {
-  const [_, startTransition] = useTransition();
   const [tab, setTab] = useState<TabType>("about");
   const selectTab = (nextTab: TabType) => {
-    startTransition(() => {
-      setTab(nextTab);
-    });
+    setTab(nextTab);
   };
   return (
     <>
