@@ -1,3 +1,10 @@
+import HeavyMessage from "./HeavyMessage";
+
 export const App = () => {
-  return <>Hello React</>;
+  return (
+    <>
+      <div>Hello</div>
+      <HeavyMessage />
+    </>
+  );
 };
