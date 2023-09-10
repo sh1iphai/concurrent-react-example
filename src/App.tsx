@@ -8,10 +8,11 @@ export const App = () => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
+  const isPending = text !== deferredText;
   return (
     <>
       <input type="text" onChange={handleChange} className={styles.input} />
-      <HeavyField text={deferredText} />
+      <HeavyField text={deferredText} isPending={isPending} />
     </>
   );
 };
